@@ -30,12 +30,14 @@ def netflix_solve (r, w) :
         else:
             customer_no = s[:-1]
             customer_avg_rating = customer_cache[int(customer_no) - 1]
-            mixed_rating = (customer_avg_rating + movie_avg_rating) / 2
+            #mixed_rating = (customer_avg_rating + movie_avg_rating) / 2
+            mixed_rating = customer_avg_rating
             predictions.append(mixed_rating)
             w.write(str(round(mixed_rating, 1)) + "\n")
             count += 1
     rmse_value = rmse(predictions, values[:count])
     w.write(str(rmse_value))
+    
 
 
 # ----
