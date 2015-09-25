@@ -53,8 +53,8 @@ status:
 
 test: RunNetflix.tmp TestNetflix.tmp
 
-#collatz-tests:
-#	git clone https://github.com/cs373-fall-2015/collatz-tests.git
+netflix-tests:
+	git clone https://github.com/cs373-fall-2015/netflix-tests.git
 
 Netflix.html: Netflix.py
 	pydoc3 -w Netflix

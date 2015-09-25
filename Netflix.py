@@ -2,13 +2,17 @@
 
 import sys
 import numpy as np
-from customer_cache import *
-from movie_cache import *
-from probe_actual import *
+from myk235_customer_cache import *
+from myk235_movie_cache import *
+import json
+from pprint import pprint
 
 # -------------
 # netflix_solve
 # -------------
+
+with open('myk235_probe_actual_final.json') as data_file:
+    data = json.load(data_file)
 
 def netflix_solve (r, w) :
     """
@@ -20,23 +24,42 @@ def netflix_solve (r, w) :
     movie_no = ""
     movie_avg_rating = ""
     predictions = []
-    values = probe_actual
-    count = 0;
+    values = []
+    count = 0
+    movie_data = []
     for s in r:
         if ":" in s:
             movie_no = s[:-2]
             movie_avg_rating = movie_cache[int(movie_no) - 1]
+            movie_data = data[movie_no]
             w.write(s)
+            count = 0
         else:
             customer_no = s[:-1]
             customer_avg_rating = customer_cache[int(customer_no) - 1]
             #mixed_rating = (customer_avg_rating + movie_avg_rating) / 2
+            mixed_rating = customer_avg_rating         
+            """
+            1.04
             mixed_rating = customer_avg_rating
+            """
+
+
+            """
+            1.05
+            if((movie_avg_rating > customer_avg_rating) & ((movie_avg_rating - customer_avg_rating) > 1)):
+                mixed_rating = customer_avg_rating + .25
+            elif((customer_avg_rating > movie_avg_rating) & ((customer_avg_rating - movie_avg_rating) > 1)):
+                mixed_rating = customer_avg_rating - .25
+            else:
+                mixed_rating = customer_avg_rating
+            """
             predictions.append(mixed_rating)
+            values.append(int(movie_data[customer_no]))
             w.write(str(round(mixed_rating, 1)) + "\n")
             count += 1
-    rmse_value = rmse(predictions, values[:count])
-    w.write(str(rmse_value))
+    rmse_value = rmse(predictions, values)
+    w.write(str(rmse_value)+ "\n")
     
 
 

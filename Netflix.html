@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Netflix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Netflix</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/myk235/cs373/cs373-netflix/Netflix.py">/v/filer4b/v38q001/myk235/cs373/cs373-netflix/Netflix.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Netflix.html#Cache">Cache</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Cache">class <strong>Cache</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#eager&nbsp;cache&nbsp;with&nbsp;5000&nbsp;values<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>eagerCache</strong> = [1, 2, 8, 3, 6, 9, 17, 4, 20, 7, 15, 10, 10, 18, 18, 5, 13, 21, 21, 8, ...]</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-collatz_eval"><strong>collatz_eval</strong></a>(i, j)</dt><dd><tt>i&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
+j&nbsp;the&nbsp;end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
+return&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length&nbsp;of&nbsp;the&nbsp;range&nbsp;[i,&nbsp;j]</tt></dd></dl>
+ <dl><dt><a name="-collatz_print"><strong>collatz_print</strong></a>(w, i, j, v)</dt><dd><tt>print&nbsp;three&nbsp;ints<br>
+w&nbsp;a&nbsp;writer<br>
+i&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
+j&nbsp;the&nbsp;end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
+v&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length</tt></dd></dl>
+ <dl><dt><a name="-collatz_read"><strong>collatz_read</strong></a>(s)</dt><dd><tt>read&nbsp;two&nbsp;ints<br>
+s&nbsp;a&nbsp;string<br>
+return&nbsp;a&nbsp;list&nbsp;of&nbsp;two&nbsp;ints,&nbsp;representing&nbsp;the&nbsp;beginning&nbsp;and&nbsp;end&nbsp;of&nbsp;a&nbsp;range,&nbsp;[i,&nbsp;j]</tt></dd></dl>
+ <dl><dt><a name="-collatz_solve"><strong>collatz_solve</strong></a>(r, w)</dt><dd><tt>r&nbsp;a&nbsp;reader<br>
+w&nbsp;a&nbsp;writer</tt></dd></dl>
+ <dl><dt><a name="-cycleLength"><strong>cycleLength</strong></a>(i)</dt><dd><tt>i&nbsp;the&nbsp;number&nbsp;whose&nbsp;cycle&nbsp;length&nbsp;is&nbsp;being&nbsp;calculated<br>
+return&nbsp;the&nbsp;cycle&nbsp;length&nbsp;of&nbsp;number&nbsp;i</tt></dd></dl>
+ <dl><dt><a name="-netflix_solve"><strong>netflix_solve</strong></a>(r, w)</dt><dd><tt>read&nbsp;input<br>
+r&nbsp;a&nbsp;reader<br>
+w&nbsp;a&nbsp;writer<br>
+return&nbsp;netflix&nbsp;prediction,&nbsp;with&nbsp;RMSE</tt></dd></dl>
+ <dl><dt><a name="-rmse"><strong>rmse</strong></a>(predictions, values)</dt><dd><tt>predictions&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+values&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+outputs&nbsp;root&nbsp;mean&nbsp;squared&nbsp;error&nbsp;of&nbsp;both&nbsp;arrays</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>customer_cache</strong> = [-1, -1, -1, -1, -1, 3.4185303514377003, 4.011350737797945, 4.214285714285714, -1, 3.392307692307692, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, ...]<br>
+<strong>data</strong> = {'1': {'1027056': '3', '1059319': '3', '1149588': '4', '1283744': '3', '1394012': '5', '1406595': '4', '14756': '4', '1682104': '4', '1772839': '5', '1774623': '4', ...}, '10': {'1531863': '3', '1952305': '3'}, '1000': {'1002296': '5', '100291': '2', '1010534': '2', '1196779': '4', '1580442': '3', '1861759': '5', '1900790': '4', '1959111': '5', '1960212': '2', '2251189': '3', ...}, '10000': {'200206': '5', '523108': '4'}, '10001': {'143866': '5', '1474804': '4', '1959883': '5', '220050': '4', '2305771': '5', '2350428': '5', '2417258': '5', '2570808': '5', '2609496': '4', '262828': '4', ...}, '10002': {'1213181': '4', '1450941': '5', '2581993': '5', '308502': '5'}, '10003': {'1515111': '3'}, '10004': {'1141242': '5', '1186407': '4', '119309': '5', '1257912': '3', '1262711': '3', '1263375': '5', '1270334': '5', '1291600': '4', '129495': '4', '1648424': '5', ...}, '10005': {'1892654': '4', '254775': '1', '469365': '5', '793736': '4', '926698': '3'}, '10006': {'1093333': '4', '1534853': '5', '1632583': '5', '1982605': '5'}, ...}<br>
+<strong>data_file</strong> = &lt;_io.TextIOWrapper name='myk235_probe_actual_final.json' mode='r' encoding='UTF-8'&gt;<br>
+<strong>movie_cache</strong> = [3.743, 3.743, 3.534, 3.639, 2.72, 3.916, 3.081, 2.106, 3.19, 2.594, 3.168, 3.015, 3.411, 4.516, 3.0, 3.275, 3.097, 2.903, 3.784, 3.319, ...]</td></tr></table>
+</body></html>

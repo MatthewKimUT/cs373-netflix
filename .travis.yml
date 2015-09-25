@@ -20,6 +20,8 @@ before_script:
 script:
     - date
     - ls -al
+    - make netflix-tests
+    - ls -al
     - make Netflix.html
     - ls -al
     - make Netflix.log
