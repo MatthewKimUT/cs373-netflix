@@ -1,0 +1,23 @@
+commit 71b8adeef8eb7c4c84da60547a2e447b2a6e548f
+Author: Matthew Kim <myk235@cs.utexas.edu>
+Date:   Thu Sep 24 20:20:25 2015 -0500
+
+    Added EID files and fixed RunCollatz.in
+
+commit 98d4c64aca76301c218524c30a1a3cd69a6d2d50
+Author: Matthew Kim <myk235@cs.utexas.edu>
+Date:   Thu Sep 24 00:11:35 2015 -0500
+
+    commit to make travis build pass
+
+commit ccb63d6fb59c4a5d9019b5dc9cecd1fd215674c2
+Author: Matthew Kim <myk235@cs.utexas.edu>
+Date:   Thu Sep 24 00:07:27 2015 -0500
+
+    lowered RMSE value to 1.04
+
+commit c76eef2791e82d2c63021639abf8cff6600c9c9e
+Author: Matthew Kim <myk235@cs.utexas.edu>
+Date:   Wed Sep 23 23:27:27 2015 -0500
+
+    Initial commit, with all files modified (late commit)
