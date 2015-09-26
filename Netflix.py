@@ -58,7 +58,7 @@ def netflix_solve (r, w) :
             w.write(str(round(mixed_rating, 1)) + "\n")
             count += 1
     rmse_value = rmse(predictions, values)
-    w.write(str(rmse_value)+ "\n")
+    w.write("RMSE: " + str(rmse_value)+ "\n")
     
 
 
