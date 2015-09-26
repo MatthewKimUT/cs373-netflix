@@ -37,15 +37,14 @@ def netflix_solve (r, w) :
         else:
             customer_no = s[:-1]
             customer_avg_rating = customer_cache[int(customer_no) - 1]
-            #mixed_rating = (customer_avg_rating + movie_avg_rating) / 2
-            mixed_rating = customer_avg_rating         
+
+            avg = 3.7
+            offsetM = movie_avg_rating - avg
+            offsetC = customer_avg_rating - avg
+            mixed_rating = 3.7 + offsetC
             """
             1.04
             mixed_rating = customer_avg_rating
-            """
-
-
-            """
             1.05
             if((movie_avg_rating > customer_avg_rating) & ((movie_avg_rating - customer_avg_rating) > 1)):
                 mixed_rating = customer_avg_rating + .25
