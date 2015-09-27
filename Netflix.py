@@ -3,7 +3,6 @@
 import sys
 import numpy as np
 from myk235_customer_cache import *
-from myk235_movie_cache import *
 import json
 from pprint import pprint
 
@@ -14,6 +13,9 @@ from pprint import pprint
 with open('myk235_probe_actual_final.json') as data_file:
     data = json.load(data_file)
 
+with open('myk235-movie_stats.json') as data_file:
+    movie_stats = json.load(data_file)
+
 def netflix_solve (r, w) :
     """
     read input
@@ -22,7 +24,10 @@ def netflix_solve (r, w) :
     return netflix prediction, with RMSE
     """
     movie_no = ""
-    movie_avg_rating = ""
+    movie_avg_rating = 0
+    movie_std_dev = 0
+    movie_vote_num = 0
+    movie_year = 0
     predictions = []
     values = []
     count = 0
@@ -30,35 +35,42 @@ def netflix_solve (r, w) :
     for s in r:
         if ":" in s:
             movie_no = s[:-2]
-            movie_avg_rating = movie_cache[int(movie_no) - 1]
+            tempStats = movie_stats[str(movie_no)]
+            movie_avg_rating = tempStats["rm"]
+            movie_std_dev = tempStats["rs"]
+            movie_vote_num = tempStats["count"]
+            movie_year = tempStats["y"]
             movie_data = data[movie_no]
             w.write(s)
             count = 0
         else:
             customer_no = s[:-1]
             customer_avg_rating = customer_cache[int(customer_no) - 1]
-
-            avg = 3.7
-            offsetM = movie_avg_rating - avg
-            offsetC = customer_avg_rating - avg
-            mixed_rating = 3.7 + offsetC
-            """
-            1.04
-            mixed_rating = customer_avg_rating
-            1.05
-            if((movie_avg_rating > customer_avg_rating) & ((movie_avg_rating - customer_avg_rating) > 1)):
-                mixed_rating = customer_avg_rating + .25
-            elif((customer_avg_rating > movie_avg_rating) & ((customer_avg_rating - movie_avg_rating) > 1)):
-                mixed_rating = customer_avg_rating - .25
+            diff = 0
+            if(movie_std_dev < .8):
+                mixed_rating = movie_avg_rating
+            elif(movie_avg_rating > 4.25):
+                mixed_rating = movie_avg_rating
+            elif(movie_avg_rating < 2.25):
+                mixed_rating = movie_avg_rating
             else:
-                mixed_rating = customer_avg_rating
-            """
+                diff = 0
+                if(customer_avg_rating > 3.68):
+                    diff = customer_avg_rating - 3.68
+                else:
+                    diff = 3.68 - customer_avg_rating
+                if customer_avg_rating > movie_avg_rating and (customer_avg_rating - movie_avg_rating) > .8:
+                    mixed_rating = movie_avg_rating + diff
+                elif movie_avg_rating > customer_avg_rating and (movie_avg_rating - customer_avg_rating) > .8:
+                    mixed_rating = movie_avg_rating - diff
+                else:
+                    mixed_rating = (movie_avg_rating + customer_avg_rating) / 2
             predictions.append(mixed_rating)
             values.append(int(movie_data[customer_no]))
             w.write(str(round(mixed_rating, 1)) + "\n")
             count += 1
     rmse_value = rmse(predictions, values)
-    w.write("RMSE: " + str(rmse_value)+ "\n")
+    w.write("RMSE: " + str(round(rmse_value, 2))+ "\n")
     
 
 
@@ -72,7 +84,7 @@ def rmse (predictions, values):
     values an array of floats
     outputs root mean squared error of both arrays
     """
-    return round(np.sqrt(np.mean(np.square(np.subtract(predictions, values)))), 2)
+    return np.sqrt(np.mean(np.square(np.subtract(predictions, values))))
 
 
 
