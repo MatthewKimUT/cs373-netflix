@@ -70,7 +70,7 @@ def netflix_solve (r, w) :
             w.write(str(round(mixed_rating, 1)) + "\n")
             count += 1
     rmse_value = rmse(predictions, values)
-    w.write("RMSE: " + str(round(rmse_value, 2))+ "\n")
+    w.write("RMSE: " + str(rmse_value)+ "\n")
     
 
 
@@ -84,7 +84,7 @@ def rmse (predictions, values):
     values an array of floats
     outputs root mean squared error of both arrays
     """
-    return np.sqrt(np.mean(np.square(np.subtract(predictions, values))))
+    return round(np.sqrt(np.mean(np.square(np.subtract(predictions, values)))), 2)
 
 
 

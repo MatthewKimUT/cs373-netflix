@@ -59,10 +59,10 @@ class TestNetflix (TestCase) :
     # -------------
 
     def test_solve (self) :
-        r = StringIO("1:\n30878\n2647871\n1283744\n2488120")
+        r = StringIO("1:\n30878\n2647871\n1283744\n2488120\n")
         w = StringIO()
         netflix_solve(r,w)
-        self.assertEqual(w.getvalue(), "1:\n3.7\n3.5\n3.6\n3.8\n0.74")
+        self.assertEqual(w.getvalue(), "1:\n3.7\n3.5\n3.6\n4.7\nRMSE: 0.46\n")
 
 
 if __name__ == "__main__" :
